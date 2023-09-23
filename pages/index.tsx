@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import { PictureList } from './components/pictureList'
+import { PictureList } from '../components/pictureList'
 import classNames from "classnames";
 
 const inter = Inter({ subsets: ['latin'] })
