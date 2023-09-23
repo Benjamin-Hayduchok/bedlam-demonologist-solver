@@ -14,6 +14,7 @@ export const PictureList: FC = () => {
                 patternList.map((pattern) => (
                     <PatternPic
                         patternType={pattern}
+                        key={pattern}
                     />
                 ))
             }
