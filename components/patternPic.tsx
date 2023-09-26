@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
-import classNames from "classnames";
+import { PictureHeader } from "./pictureHeader";
+import { RotationButton } from "./rotationButton";
 
 export type PatternPicType = {
   patternType: string;
@@ -10,16 +11,14 @@ export const PatternPic: FC<PatternPicType> = (patternTypeProps) => {
   const [isRotated, setIsRotated] = useState(false);
   const handleRotate = () => {
     setIsRotated(!isRotated);
-    console.log(isRotated);
   };
 
   const rotatedString = isRotated ? "-rotated" : "";
-  const imageHeader = patternType + (isRotated ? "LEAVING PUZZLE ROOM" : "");
 
   return (
     <div
       className={
-        "w-[500px] border-red-50 h-[500px] text-red-900 text-5xl font-serif drop-shadow-md"
+        "w-[500px] border-red-50 h-[500px] drop-shadow-md"
       }
       style={{
         backgroundImage: `url(${patternType + rotatedString + ".png"})`,
@@ -27,13 +26,16 @@ export const PatternPic: FC<PatternPicType> = (patternTypeProps) => {
         backgroundSize: "contain",
       }}
     >
-      <div className={"flex backdrop-blur-md"}>
-        <div className={"w-1/4"}>{patternType}</div>
-        <div className={" text-red-900 text-[22px] underline pt-4"}>
-            {isRotated ? "LEAVING PUZZLE ROOM" : "ENTERING PUZZLE ROOM"}
-        </div>
-      </div>
-      <div
+      <PictureHeader
+        patternText={patternType}
+        rotationText={
+          isRotated ? "LEAVING PUZZLE ROOM" : "ENTERING PUZZLE ROOM"
+        }
+      />
+      <RotationButton
+        handleRotate={handleRotate}
+      />
+      {/* <div
         className={"w-16 h-16 backdrop-blur-[2px] fixed bottom-6 right-6"}
         style={{
           backgroundImage: `url(refresh-reverse.svg)`,
@@ -41,7 +43,7 @@ export const PatternPic: FC<PatternPicType> = (patternTypeProps) => {
           backgroundSize: "contain",
         }}
         onClick={handleRotate}
-      ></div>
+      ></div> */}
     </div>
   );
 };
