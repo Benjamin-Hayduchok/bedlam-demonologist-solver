@@ -20,7 +20,7 @@ export const PatternPic: FC<PatternPicType> = (patternTypeProps) => {
   return (
     <div
       className={
-        `w-[${picSize}px] border-red-50 h-[${picSize}px] drop-shadow-md`
+        `w-[600px] border-red-50 h-[600px] drop-shadow-md`
       }
       style={{
         backgroundImage: `url(${patternType + rotatedString + ".png"})`,
