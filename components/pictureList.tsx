@@ -40,7 +40,11 @@ export const PictureList: FC = () => {
         ></TimeInput>
       </div>
       {patternList.map((pattern) => (
-        <PatternPic patternType={pattern} key={pattern} />
+        <PatternPic
+          patternType={pattern}
+          key={pattern}
+          count={patternList.length}
+        />
       ))}
     </div>
   );
