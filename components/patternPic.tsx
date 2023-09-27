@@ -34,9 +34,7 @@ export const PatternPic: FC<PatternPicType> = (patternTypeProps) => {
           isRotated ? "LEAVING PUZZLE ROOM" : "ENTERING PUZZLE ROOM"
         }
       />
-      <RotationButton
-        handleRotate={handleRotate}
-      />
+      {patternType !== "12-1" && <RotationButton handleRotate={handleRotate}/>}
     </div>
   );
 };
