@@ -11,12 +11,10 @@ export const PictureList: FC = () => {
 
   const handleHourChange = (newHour: number) => {
     setHour(newHour);
-    updatePatternList();
   };
 
   const handleMinuteChange = (newMinutes: number) => {
     setMinutes(newMinutes);
-    updatePatternList();
   };
 
   const updatePatternList = () => {
