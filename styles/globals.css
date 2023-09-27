@@ -16,6 +16,12 @@
   }
 }
 
+@layer components {
+  .number-input {
+    @apply text-black w-14 rounded-md text-center;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +30,15 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  /* Your custom styles for the spinner buttons */
+  background-color: #000;
+  color: #000;
+  font-size: 200px;
+  min-height:100px;
+  border-radius: 4px;
+  cursor: pointer;
 }
