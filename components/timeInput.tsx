@@ -22,8 +22,16 @@ export const TimeInput: FC<timeInputProps> = (props) => {
     const minutes = parseInt(e.target.value);
     if (!isNaN(minutes)) {
       setMinutes(minutes);
+      props.setMinutes(minutes);
     }
   };
+
+  const clearTime = () => {
+    setMinutes(0);
+    setHour(0);
+    props.setHour(0);
+    props.setMinutes(0);
+  }
 
   return (
     <div
@@ -56,6 +64,18 @@ export const TimeInput: FC<timeInputProps> = (props) => {
           />
         </div>
       </label>
+      <button
+        type="button"
+        className={classNames(
+          "text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600",
+          "hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800",
+          "font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2",
+          "ml-5 max-h-10"
+        )}
+        onClick={clearTime}
+      >
+        CLEAR
+      </button>
     </div>
   );
 };
