@@ -2,9 +2,9 @@ import classNames from "classnames";
 import { FC, useState } from "react";
 
 export type timeInputProps = {
-    setHour: (hour: number) => void;
-    setMinutes: (minute: number) => void;
-}
+  setHour: (hour: number) => void;
+  setMinutes: (minute: number) => void;
+};
 
 export const TimeInput: FC<timeInputProps> = (props) => {
   const [hour, setHour] = useState(0);
@@ -17,7 +17,7 @@ export const TimeInput: FC<timeInputProps> = (props) => {
       props.setHour(newHour);
     }
   };
- 
+
   const handleMinuteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const minutes = parseInt(e.target.value);
     if (!isNaN(minutes)) {
@@ -26,29 +26,35 @@ export const TimeInput: FC<timeInputProps> = (props) => {
   };
 
   return (
-    <div className={classNames("flex")}>
-    <p>{"Enter Current Clock Time --->  "}</p>
-      <label>
+    <div
+      className={classNames("flex text-center font-bold font-mono text-4xl")}
+    >
+      <p>{"Enter Current Clock Time →"}</p>
+      <label className={classNames("pl-5 pr-5 inline-flex")}>
         Hour:
-        <input
-          className={classNames("text-black")}
-          type="number"
-          value={hour}
-          onChange={handleHourChange}
-          min={1}
-          max={12}
-        />
+        <div className={classNames("pl-1")}>
+          <input
+            className={"number-input"}
+            type="number"
+            value={hour}
+            onChange={handleHourChange}
+            min={1}
+            max={12}
+          />
+        </div>
       </label>
-      <label>
+      <label className={classNames("inline-flex")}>
         Minutes:
-        <input
-          className={classNames("text-black")}
-          type="number"
-          value={minutes}
-          onChange={handleMinuteChange}
-          min={0}
-          max={59}
-        />
+        <div className={classNames("pl-1")}>
+          <input
+            className={"number-input"}
+            type="number"
+            value={minutes}
+            onChange={handleMinuteChange}
+            min={0}
+            max={59}
+          />
+        </div>
       </label>
     </div>
   );
